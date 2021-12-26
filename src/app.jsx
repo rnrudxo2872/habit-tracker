@@ -35,14 +35,24 @@ class App extends React.Component {
       this.setState({habits});
   }
 
+  onDelete = (habit) => {
+    const habits = this.state.habits.filter((curHabit) => habit.id !== curHabit.id);
+    this.setState({habits});
+  }
+
   habitEvents = {
     handleIncrement:this.onIncrement,
-    handleDecrement:this.onDecrement
+    handleDecrement:this.onDecrement,
+    handleDelete:this.onDelete
+  }
+
+  events = {
+    habitEvents: this.habitEvents
   }
 
   render() {
     return ( 
-      <Habits habits={this.state.habits} {...this.habitEvents}/>
+      <Habits habits={this.state.habits} {...this.events}/>
     )
   }
 }

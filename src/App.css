@@ -38,4 +38,9 @@
 
 .habit-decrease {
   color: tomato;
+  margin-right: .5em;
+}
+
+.habit-delete {
+  color: rgb(94, 20, 20);
 }
