@@ -3,7 +3,6 @@ import react from "react";
 class NavBar extends react.PureComponent {
     
     render() {
-        console.log('navbar rerender!!!')
         return(
             <nav className="navigation">
                 <div className="navigation-icon">

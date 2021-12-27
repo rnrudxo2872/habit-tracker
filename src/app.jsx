@@ -10,7 +10,7 @@ class App extends React.Component {
         {id:"tracker-2" , name:"sport", count:0},
         {id:"tracker-3" , name:"walk", count:0},
         {id:"tracker-4" , name:"running", count:0},
-    ]
+    ],
   }
 
   onIncrement = (habit) => {
@@ -20,7 +20,7 @@ class App extends React.Component {
           }
           return curHabit;
       });
-      this.setState({habits})
+      this.setState((curHabits) => ({...curHabits, habits}))
   }
 
   onDecrement = (habit) => {
@@ -33,12 +33,22 @@ class App extends React.Component {
           }
           return curHabit
       })
-      this.setState({habits});
+      this.setState((curHabits) => ({...curHabits, habits}));
   }
 
   onDelete = (habit) => {
     const habits = this.state.habits.filter((curHabit) => habit.id !== curHabit.id);
-    this.setState({habits});
+    this.setState((curHabits) => ({...curHabits, habits}));
+  }
+
+  onSubmit = (text) => {
+    if(text.length === 0) return false;
+    
+    const {habits} = this.state;
+    const result = [...habits, {id:`tracker-${habits.length+1}`, name:text, count:0}];
+
+    this.setState((curHabits) => ({...curHabits, habits:result}));
+    return true;
   }
 
   habitEvents = {
@@ -47,8 +57,13 @@ class App extends React.Component {
     handleDelete:this.onDelete
   }
 
+  addEvents = {
+    handleSubmit:this.onSubmit
+  }
+
   events = {
-    habitEvents: this.habitEvents
+    habitEvents: this.habitEvents,
+    addEvents: this.addEvents
   }
 
   render() {
