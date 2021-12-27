@@ -13,6 +13,7 @@ class Habits extends PureComponent {
                     this.props.habits.map((habit) => <Habit key={habit.id} habit={habit} {...habitEvents}/>)
                 }
             </ul>
+            <button className="habits-button habits-reset" onClick={habitEvents.handleReset}>Reset</button>
         </>)
     }
 }

@@ -20,7 +20,7 @@ class App extends React.Component {
           }
           return curHabit;
       });
-      this.setState((curHabits) => ({...curHabits, habits}))
+      this.setState((curHabits) => ({...curHabits, habits}));
   }
 
   onDecrement = (habit) => {
@@ -51,10 +51,17 @@ class App extends React.Component {
     return true;
   }
 
+  onReset = () => {
+    const habits = this.state.habits.map((curHabit) => (curHabit.count === 0 ? curHabit : {...curHabit, count:0}));
+
+    this.setState((curHabits) => ({...curHabits, habits}));
+  }
+
   habitEvents = {
     handleIncrement:this.onIncrement,
     handleDecrement:this.onDecrement,
-    handleDelete:this.onDelete
+    handleDelete:this.onDelete,
+    handleReset:this.onReset
   }
 
   addEvents = {
