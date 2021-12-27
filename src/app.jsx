@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import Habits from './components/habits';
 import './app.css';
 import NavBar from './components/navbar';
@@ -70,7 +70,16 @@ class App extends React.Component {
     return ( 
       <>
         <NavBar totalCount={this.state.habits.filter(habit => habit.count > 0).length}/>
-        <Habits habits={this.state.habits} {...this.events}/>
+        <Profiler id='habit-profiler' onRender={(actualDuration, baseDuration) => {
+          console.log('')
+          console.log('----------------------------')
+          console.log(`actualDuration : ${actualDuration}`);
+          console.log(`baseDuration : ${baseDuration}`);
+          console.log('----------------------------')
+          console.log('')
+          }}>
+          <Habits habits={this.state.habits} {...this.events}/>
+        </Profiler>
       </>
     )
   }
