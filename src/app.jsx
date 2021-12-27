@@ -1,6 +1,7 @@
 import React from 'react';
 import Habits from './components/habits';
 import './app.css';
+import NavBar from './components/navbar';
 
 class App extends React.Component {
   state = {
@@ -52,7 +53,10 @@ class App extends React.Component {
 
   render() {
     return ( 
-      <Habits habits={this.state.habits} {...this.events}/>
+      <>
+        <NavBar totalCount={this.state.habits.filter(habit => habit.count > 0).length}/>
+        <Habits habits={this.state.habits} {...this.events}/>
+      </>
     )
   }
 }

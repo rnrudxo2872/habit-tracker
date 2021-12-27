@@ -1,5 +1,27 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
 .app {
   text-align: center;
+}
+
+.habits {
+  margin-left: 1em;
 }
 
 .habit {
@@ -43,4 +65,49 @@
 
 .habit-delete {
   color: rgb(94, 20, 20);
+}
+
+.navigation {
+  background-color: rgba(180, 167, 150, 0.918);
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.navigation-icon {
+  width: 4em;
+  height: 4em;
+  color: aliceblue;
+  background-color: rgb(219, 219, 174);
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.navigation-icon div {
+  width: 3.5em;
+  height: 3.5em;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+
+.navigation-title {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: rgb(54, 46, 46);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navigation-count {
+  font-size: 2.5rem;
+  margin-left: 1rem;
+  background-color: azure;
+  padding: 0.3rem 1rem;
+  border-radius: 100%;
+  text-align: center;
 }
